@@ -174,3 +174,4 @@ if __name__ == "__main__":
         print("\n--- Complexity ---")
         print(f"Time:  O({NC} × {n}^2 × {ants}) = O({NC * n * n * ants})")
         print(f"Space: O({n}^2 + {n}×{ants}) = O({n * n + n * ants})")
+# 
