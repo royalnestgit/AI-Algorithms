@@ -55,11 +55,9 @@ class IDAStar:
 
 
 def heuristic(node_idx, goal_idx):
-    # Use straight-line (minimum direct connection) or 0 (admissible)
-    # Estimate using the smallest outgoing edge from the current node
-    valid_edges = network.distances[node_idx][network.distances[node_idx] != np.inf]
-    return np.min(valid_edges) if valid_edges.size > 0 else np.inf
-    # return 0  # can be replaced with better heuristics like min dist estimate
+    row = network.distances[node_idx]
+    valid_edges = [row[i] for i in range(len(row)) if row[i] != np.inf and i != node_idx]
+    return min(valid_edges)+4 if valid_edges else 1
 
 def plot_path(network, best_path):
     G = nx.Graph()
@@ -106,9 +104,9 @@ def compute_idastar_complexity(graph_size, branching_factor, goal_depth):
 if __name__ == "__main__":
     node_names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     distance_matrix = [
-        [0, 15, 10, 17,  0,  0,  7,  0],
+        [0, 15, 10, 17,  0,  0,  5,  0],
         [15, 0,  0, 12,  0,  0,  0,  0],
-        [10, 0,  0,  5,  0,  0,  7,  0],
+        [10, 0,  0,  0,  0,  0,  7,  0],
         [17,12,  5,  0,  2, 10,  0,  4],
         [0,  0,  0,  2,  0,  0,  0,  0],
         [0,  0,  0, 10,  0,  0,  0, 11],

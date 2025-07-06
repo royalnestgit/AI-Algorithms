@@ -123,16 +123,15 @@ def plot_path(network, best_path):
 if __name__ == "__main__":
     node_names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     distance_matrix = [
-        [0, 15, 10, 17,  0,  0,  7,  0],
+        [0, 15, 10, 17,  0,  0,  5,  0],
         [15, 0,  0, 12,  0,  0,  0,  0],
-        [10, 0,  0,  5,  0,  0,  7,  0],
+        [10, 0,  0,  0,  0,  0,  7,  0],
         [17,12,  5,  0,  2, 10,  0,  4],
         [0,  0,  0,  2,  0,  0,  0,  0],
         [0,  0,  0, 10,  0,  0,  0, 11],
         [7,  0,  7,  0,  0,  0,  0, 25],
         [0,  0,  0,  4,  0, 11, 25,  0]
     ]
-
     network = Network(node_names, distance_matrix)
 
     print("Nodes:", node_names)
